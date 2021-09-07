@@ -16,6 +16,13 @@ public class PersonJdbcDao {
 	@Autowired
 	JdbcTemplate jdbcTemplate;
 	
+	public List<Person> peoplePass(){
+		List<Person> peoplePassList=jdbcTemplate.query("select * from jpa.person " +
+				                                               "join jpa.passport on jpa.person.passport_id = jpa.passport.id",
+		                                               new PersonMapper());
+		return peoplePassList;
+	}
+	
 	public List<Person> findAll(){
 //		 List<Person> people = jdbcTemplate.query("select * from jpa.person", new BeanPropertyRowMapper<>(Person.class));
 		 List<Person> people = jdbcTemplate.query("select * from jpa.person", new PersonMapper());

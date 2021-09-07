@@ -30,9 +30,10 @@ public class PersonRepositoryTest {
 	@Test
 	public void findAllOrderedByFirstName() {
 		List<Person> people = personRepository.findAllOrderedByFirstName();
-		assertThat(people).hasSize(3);
-		assertThat(people.get(2).getFirstName()).isEqualTo("Olesya");
-		assertThat(people.get(1).getFirstName()).isEqualTo("Anna");
-		assertThat(people.get(0).getFirstName()).isEqualTo("Alex");
+		
+		assertThat(people).hasSize(10);
+		assertThat(people.get(2).getFirstName()).isEqualTo("Oleg");
+		assertThat(people.get(1).getFirstName()).isEqualTo("Oleg");
+		assertThat(people.get(0).getFirstName()).isEqualTo("Anna");
 	}
 }

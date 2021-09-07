@@ -1,39 +1,31 @@
 package org.nick.springdata.entity;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
-public class Passport {
+//@Table(name = "phone")
+public class Phone {
+	
 	@Id
 	@GeneratedValue
 	private int id;
 	
-	@Column(unique = true, nullable = false)
 	private String number;
 	
-	@OneToOne(mappedBy = "passport", cascade = CascadeType.ALL)
-	private Person person;
+	/*---------------------*/
 	
-	
-	public Passport() {
+	public Phone() {
 	}
 	
-	public Passport(String number) {
+	public Phone(String number) {
 		this.number = number;
 	}
 	
-	public Passport(String number, Person person) {
-		this.number = number;
-		this.person = person;
-	}
+	/*---------------------*/
 	
-	public Person getPerson() {
-		return person;
-	}
-	
-	public void setPerson(Person person) {
-		this.person = person;
-	}
 	
 	public int getId() {
 		return id;
@@ -51,9 +43,11 @@ public class Passport {
 		this.number = number;
 	}
 	
+	/*---------------------*/
+	
 	@Override
 	public String toString() {
-		return "Passport{" +
+		return "Phone{" +
 				       "id=" + id +
 				       ", number='" + number + '\'' +
 				       '}';
